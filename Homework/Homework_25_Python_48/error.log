@@ -1,0 +1,2 @@
+2026-06-21 08:28:13,555 - ERROR - homework_02.py - 33 - Ошибка: Введено некорректное число: could not convert string to float: 'a'
+2026-06-21 08:28:13,555 - ERROR - homework_02.py - 37 - Ошибка: Деление на ноль невозможно:  division by zero
