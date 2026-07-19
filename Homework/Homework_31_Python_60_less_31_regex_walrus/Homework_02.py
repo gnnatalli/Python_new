@@ -15,7 +15,7 @@ tag_input = "python, data-science / machine-learning; AI  neural-networks"
 
 import re
 
-tags = ...
+tags = re.split(r"\s*[,;/]\s*|\s+", tag_input)
 print(tags)
 
 # ['python', 'data-science', 'machine-learning', 'AI', 'neural-networks']
