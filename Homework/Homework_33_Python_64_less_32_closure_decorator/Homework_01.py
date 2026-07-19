@@ -24,8 +24,25 @@ import time
 
 
 def measure_time(func):
-    pass
+    def wrapper(*args, **kwargs):
+        times = []
+        result = None
 
+        for _ in range(5):
+            start = time.time()
+
+            result = func(*args, **kwargs)
+
+            end = time.time()
+            times.append(end - start)
+
+        average_time = sum(times) / 5
+        print(f"Среднее время выполнения для 5 вызовов: {average_time:.2f} секунд")
+        print(f"Результат: {result}")
+
+        return result
+
+    return wrapper
 
 @measure_time
 def compute():

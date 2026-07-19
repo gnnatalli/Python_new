@@ -22,9 +22,30 @@ def compute():
 """
 import time
 
-
 def measure_time(times=5):
-    pass
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            total_time = 0
+            result = 0
+
+            for _ in range(times):
+                start = time.time()
+
+                result = func(*args, **kwargs)
+
+                end = time.time()
+                total_time += end - start
+
+            average_time = total_time / times
+
+            print(f"Среднее время выполнения для 10 вызовов: {average_time:.2f} секунд")
+            print(f"Результат: {result}")
+
+            return result
+
+        return wrapper
+
+    return decorator
 
 
 @measure_time(10)
