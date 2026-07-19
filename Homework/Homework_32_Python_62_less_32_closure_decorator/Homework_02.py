@@ -23,7 +23,16 @@ for event in log():
 from datetime import datetime
 
 def make_logger():
-    pass
+    events = []
+
+    def log(event=None):
+        if event:
+            time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            events.append(f" {event}: {time}")
+
+        return events
+
+    return log
 
 
 log = make_logger()

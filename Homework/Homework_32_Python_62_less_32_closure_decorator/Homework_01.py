@@ -21,8 +21,10 @@ from typing import Callable
 
 
 def make_rounder(num_digits: int) -> Callable:
-    pass
+    def rounder(num: float) -> float:
+        return round(num, num_digits)
 
+    return rounder
 
 round2 = make_rounder(2)
 round0 = make_rounder(0)

@@ -14,7 +14,12 @@ def say_hello():
 """
 
 def decorator(func):
-    pass
+    def wrapper(*args, **kwargs):
+        print("-" * 50)
+        func(*args, **kwargs)
+        print("-" * 50)
+
+    return wrapper
 
 
 @decorator
