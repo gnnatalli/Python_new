@@ -26,7 +26,20 @@
 """
 
 class Product:
-    pass
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def info(self):
+        print(f"Название: {self.name}")
+        print(f"Цена: {self.price}")
+
+    def apply_discount(self, percent):
+        print(f"Применяем скидку {percent}%")
+#         Рассчитываем скидку и вычитываем ее из текущей цены
+        self.price = self.price - (self.price * percent / 100)
+        print(f"Новая цена: {self.price}")
+
 
 
 # Проверка работы класса
