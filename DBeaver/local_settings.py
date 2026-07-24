@@ -29,3 +29,7 @@ dbconfig_write = {
 MONGODB_URL_READ = 'mongodb://ich1:password@mongo.itcareerhub.de/?readPreference=primary&ssl=false&authMechanism=DEFAULT&authSource=ich'
 MONGODB_URL_WRITE = 'mongodb://ich_editor:verystrongpassword@mongo.edu.itcareerhub.de:27017/?readPreference=primary&ssl=false&authMechanism=DEFAULT&authSource=ich_edit'
 
+MONGODB_URL_ATLAS = 'mongodb+srv://gnnatalli_db_user:GNHjync8HB3yAv4H@naty.wzzlhmo.mongodb.net/'
+
+gnnatalli_db_user
+GNHjync8HB3yAv4H
