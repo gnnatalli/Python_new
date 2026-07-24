@@ -13,11 +13,22 @@ I'm on course 2.
 
 
 class Person:
-    pass
+
+    def __init__(self, name):
+        self.name = name
+
+    def introduce(self):
+        print(f"Hello, my name is {self.name}.")
 
 
-class Student():
-    pass
+class Student(Person):
+    def __init__(self, name, course):
+        super().__init__(name)
+        self.course = course
+
+    def introduce(self):
+        super().introduce()
+        print(f"I'm on course {self.course}.")
 
 
 student1 = Student("Alice", 2)

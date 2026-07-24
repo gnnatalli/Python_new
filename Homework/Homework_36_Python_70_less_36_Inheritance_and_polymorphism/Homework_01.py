@@ -10,7 +10,12 @@ Hello, my name is Alice.
 
 
 class Person:
-    pass
+
+    def __init__(self, name):
+        self.name = name
+
+    def introduce(self):
+        print(f"Hello, my name is {self.name}.")
 
 
 person1 = Person("Alice")
