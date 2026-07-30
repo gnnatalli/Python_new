@@ -1,11 +1,11 @@
-HOST = ''
-USER = ''
-PASSWORD = ''
+HOST = 'ich-db.edu.itcareerhub.de'
+USER = 'ich1'
+PASSWORD = 'password_ich1'
 DATABASE = 'sakila'
 
-HOST_WRITE = ''
-USER_WRITE = ''
-PASSWORD_WRITE = ''
+HOST_WRITE = 'ich-edit.edu.itcareerhub.de'
+USER_WRITE = 'ich1'
+PASSWORD_WRITE = 'ich_edit_password_ilovedbs'
 
 # ВНИМАНИЕ!!! Заменить на СВОЮ БД!!!
 DATABASE_WRITE = '060326_ptm_Naty'
@@ -31,5 +31,3 @@ MONGODB_URL_WRITE = 'mongodb://ich_editor:verystrongpassword@mongo.edu.itcareerh
 
 MONGODB_URL_ATLAS = 'mongodb+srv://gnnatalli_db_user:GNHjync8HB3yAv4H@naty.wzzlhmo.mongodb.net/'
 
-gnnatalli_db_user
-GNHjync8HB3yAv4H

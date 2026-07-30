@@ -8,17 +8,20 @@ Laptop — поддерживает аудио и видео. Принимает
 !!! Не забудьте проверить наличие атрибутов в КАЖДОМ объекте
 """
 
-from homework_01 import AudioFileMixin, VideoFileMixin
+from Homework_01 import AudioFileMixin, VideoFileMixin
 
 
 # Класс MediaPlayer — поддерживает только аудио
 class MediaPlayer(AudioFileMixin):
-    pass
+    def __init__(self, audio_tracks):
+        self.audio_tracks = audio_tracks
 
 
 # Класс Laptop — поддерживает и аудио, и видео
 class Laptop(AudioFileMixin, VideoFileMixin):
-    pass
+    def __init__(self, audio_tracks, video_files):
+        self.audio_tracks = audio_tracks
+        self.video_files = video_files
 
 
 # Примеры использования
