@@ -17,7 +17,31 @@ Operation history:
 """
 
 class BankAccount:
-    pass
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self._balance = balance
+        self._history = []
+
+    def deposit(self, amount):
+        if amount < 0:
+            print("Error: Amount must be positive.")
+        else:
+            self._balance += amount
+            self._history.append(f"Deposit: {amount}")
+
+    def withdraw(self, amount):
+        if amount < 0:
+            print("Error: Amount must be positive.")
+        else:
+            self._balance -= amount
+            self._history.append(f"Withdraw: {amount}")
+
+    def show_balance(self):
+        print(f"Current balance: {self._balance}.")
+
+    @property
+    def history(self):
+        return self._history.copy()
 
 
 

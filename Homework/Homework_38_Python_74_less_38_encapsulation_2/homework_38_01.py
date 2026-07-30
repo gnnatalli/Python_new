@@ -29,7 +29,26 @@
 
 
 class BankAccount:
-    pass
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self._balance = balance
+
+    def deposit(self, amount):
+        if amount < 0:
+            print("Error: Amount must be positive.")
+        else:
+            self._balance += amount
+
+    def withdraw(self, amount):
+        if amount < 0:
+            print("Error: Amount must be positive.")
+        elif amount > self._balance:
+            print("Error: Not enough funds.")
+        else:
+            self._balance -= amount
+
+    def show_balance(self):
+        print(f"Current balance: {self._balance}")
 
 
 if __name__ == "__main__":
