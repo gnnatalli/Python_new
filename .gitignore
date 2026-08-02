@@ -2,3 +2,13 @@
 local_settings.py
 __pycache__/
 *.pyc
+
+# Локальные настройки с паролями
+**/local_settings.py
+
+# Виртуальное окружение
+.venv/
+
+# Кэш Python
+**/__pycache__/
+*.pyc
