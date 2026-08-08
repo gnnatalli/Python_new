@@ -43,8 +43,33 @@ Is newer: True
 from datetime import datetime
 
 class Email:
-    pass
+    def __init__(self, sender, recipient, subject, body,  date):
+        self.sender = sender
+        self.recipient = recipient
+        self.subject = subject
+        self.body = body
+        self.date = date
 
+
+    def __str__(self):
+        return (
+            f"From: {self.sender}\n"
+            f"To: {self.recipient}\n"
+            f"Subject: {self.subject}\n\n"
+            f" - {self.body} - "
+        )
+
+
+    def __len__(self):
+        return len(self.body)
+
+
+    def __bool__(self):
+        return bool(self.body.strip())
+
+
+    def __gt__(self, other):
+        return self.date > other.date
 
 # Пример использования
 e1 = Email("alice@example.com", "bob@example.com", "Meeting", "Let's meet at 10am", datetime(2024, 6, 10))

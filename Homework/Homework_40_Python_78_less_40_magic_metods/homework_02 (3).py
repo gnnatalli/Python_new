@@ -21,8 +21,25 @@ $0
 """
 
 class Money:
-    pass
+    def __init__(self, amount):
+        self.amount = amount
 
+
+    def __str__(self):
+        return f"${self.amount}"
+
+
+    def __add__(self, other):
+        return Money(self.amount + other.amount)
+
+
+    def __sub__(self, other):
+        result = self.amount - other.amount
+
+        if result < 0:
+            result = 0
+
+        return Money(result)
 
 # Пример использования
 money1 = Money(100)
