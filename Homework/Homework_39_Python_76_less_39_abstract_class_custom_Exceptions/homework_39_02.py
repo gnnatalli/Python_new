@@ -8,16 +8,60 @@
 """
 
 
-class Shape():
+"""01 Фигуры и площади
+
+Создайте абстрактный класс Shape.
+В классе должен быть метод get_area(), который возвращает площадь фигуры.
+Реализуйте два класса:
+- Circle, который принимает радиус.
+- Rectangle, который принимает ширину и высоту.
+"""
+
+from abc import ABC, abstractmethod
+import math
+
+class InvalidSizeError(Exception):
     pass
 
+class Shape(ABC):
 
-class Circle():
-    pass
+    @abstractmethod
+    def get_area(self):
+        pass
 
 
-class Rectangle():
-    pass
+class Circle(Shape):
+
+    def __init__(self, radius):
+        if radius < 0:
+            raise InvalidSizeError(
+                f"Значение radius={radius} должно быть положительным!"
+            )
+
+        self.radius = radius
+
+    def get_area(self):
+        return math.pi * self.radius**2
+
+
+class Rectangle(Shape):
+
+    def __init__(self, width, height):
+        if width <= 0:
+            raise InvalidSizeError(
+                f"Значение width={width} должно быть положительным!"
+            )
+
+        if height <= 0:
+            raise InvalidSizeError(
+                f"Значение height={height} должно быть положительным!"
+            )
+
+        self.width = width
+        self.height = height
+
+    def get_area(self):
+        return self.width * self.height
 
 
 if __name__ == "__main__":

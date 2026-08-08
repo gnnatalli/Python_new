@@ -7,18 +7,33 @@
 - Rectangle, который принимает ширину и высоту.
 """
 
+from abc import ABC, abstractmethod
+import math
+
+class Shape(ABC):
+
+    @abstractmethod
+    def get_area(self):
+        pass
 
 
-class Shape():
-    pass
+class Circle(Shape):
 
+    def __init__(self, radius):
+        self.radius = radius
 
-class Circle():
-    pass
+    def get_area(self):
+        return math.pi * self.radius**2
 
 
 class Rectangle(Shape):
-    pass
+
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def get_area(self):
+        return self.width * self.height
 
 
 if __name__ == "__main__":
