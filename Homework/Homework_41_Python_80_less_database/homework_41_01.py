@@ -21,13 +21,52 @@ class DatabaseError(Exception):
 
 
 class MySQLConnection:
-    pass
+    def __init__(self, config):
+        self.config = config
+        self.connection = None
+
+
+    def __enter__(self):
+        try:
+            self.connection = mysql.connector.connect(**self.config)
+            return self
+        except mysql.connector.Error as err:
+            raise DatabaseError(
+                f"Ошибка подключения к базе данных: {err}"
+            )
+
+
+    def __exit__(self, exc_type, exc_val, traceback):
+        if self.connection:
+            self.connection.close()
 
 
 class WorldDB(MySQLConnection):
     def fetch_countries(self):
         """Получить список всех стран"""
 
+        try:
+            with self.connection.cursor() as cursor:
+                cursor.execute("""
+                        SELECT Name
+                        FROM country
+                        ORDER BY Name
+                        """
+                )
+
+                rows = cursor.fetchall()
+
+            countries = []
+
+            for row in rows:
+                countries.append(row[0])
+
+            return countries
+
+        except mysql.connector.Error as e:
+            raise DatabaseError(
+                f"Ошибка получения списка стран: {e}"
+            )
 
 
 if __name__ == "__main__":
