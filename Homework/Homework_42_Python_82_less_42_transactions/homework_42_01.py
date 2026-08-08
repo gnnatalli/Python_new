@@ -12,9 +12,23 @@ Database 'notes_app' created or already exists.
 import mysql.connector
 from local_settings import dbconfig_write
 
-db_name = ...
+db_name = "notes_app_060326_ptm_Nataliia_Honchar"
 
-pass
+with mysql.connector.connect(**dbconfig_write) as connection:
+    with connection.cursor() as cursor:
+        cursor.execute(
+            f"CREATE DATABASE IF NOT EXISTS {db_name}"
+        )
+
+        cursor.execute(
+            f"USE {db_name}"
+        )
+
+        print(
+            f"Database {db_name} created or already exists."
+        )
+
+
 
 
 # Database 'notes_app_112226_abcdefg' created or already exists.
